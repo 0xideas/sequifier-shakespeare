@@ -1,12 +1,12 @@
 project_path: .
 model_name: default
 read_format: parquet
-ddconfig_path: PLEASE FILL
+ddconfig_path: configs/ddconfigs/shakespeare.json
 
-selected_columns: [EXAMPLE_INPUT_COLUMN_NAME] # should include all target column, can include additional columns
-target_columns: [EXAMPLE_TARGET_COLUMN_NAME]
+selected_columns: [character] # should include all target column, can include additional columns
+target_columns: [character]
 target_column_types: # 'criterion' in training_spec must also be adapted
-  EXAMPLE_TARGET_COLUMN_NAME: real
+  character: categorical
 
 seq_length: 48
 inference_batch_size: 10
@@ -19,16 +19,16 @@ model_spec:
   d_hid: 64
   nlayers: 4
 training_spec:
-  device: cpu
+  device: mps
   epochs: 100
   iter_save: 5
-  batch_size: 100
+  batch_size: 500
   log_interval: 10
   lr: 0.0008
   accumulation_steps: 1
   dropout: 0.2
   criterion:
-    EXAMPLE_TARGET_COLUMN_NAME: MSELoss
+    character: CrossEntropyLoss
   optimizer:
     name: AdamW
   scheduler:

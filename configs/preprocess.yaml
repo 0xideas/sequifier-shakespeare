@@ -1,14 +1,15 @@
 project_path: .
-data_path: PLEASE FILL
+data_path: data/shakespeare.csv
 read_format: csv
 write_format: parquet
-selected_columns: [EXAMPLE_INPUT_COLUMN_NAME] # should include all target column, can include additional columns
-target_columns: [EXAMPLE_TARGET_COLUMN_NAME]
+selected_columns: [character] # should include all target column, can include additional columns
+target_columns: [character]
 return_targets: true
+n_cores: 7
 
 group_proportions:
-- 0.8
-- 0.1
-- 0.1
-seq_length: 48
+- 0.9
+- 0.08
+- 0.02
+seq_length: 100
 max_rows: null
