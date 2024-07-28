@@ -8,23 +8,24 @@ target_columns: [character]
 target_column_types: # 'criterion' in training_spec must also be adapted
   character: categorical
 
-seq_length: 48
+seq_length: 100
 inference_batch_size: 10
 
 export_onnx: true
+export_pt: true
 
 model_spec:
-  d_model: 64
+  d_model: 256
   nhead: 4
-  d_hid: 64
-  nlayers: 4
+  d_hid: 256
+  nlayers: 6
 training_spec:
-  device: mps
-  epochs: 100
-  iter_save: 5
-  batch_size: 500
-  log_interval: 10
-  lr: 0.0008
+  device: cuda
+  epochs: 1
+  iter_save: 1
+  batch_size: 200
+  log_interval: 100
+  lr: 0.00001
   accumulation_steps: 1
   dropout: 0.2
   criterion:
@@ -32,7 +33,7 @@ training_spec:
   optimizer:
     name: AdamW
   scheduler:
-    name: StepLR
-    step_size: 1
-    gamma: 0.95
-  continue_training: false
+    name: CosineAnnealingLR
+    T_max: 4
+    eta_min: 0.00001
+  continue_training: true

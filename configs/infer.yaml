@@ -1,17 +1,18 @@
 project_path: .
-ddconfig_path: PLEASE FILL
-model_path: PLEASE FILL
-data_path: PLEASE FILL
+model_path: models/sequifier-default-best-30.onnx
+data_path: data/shakespeare-split2-long.parquet
+ddconfig_path: configs/ddconfigs/shakespeare.json
+training_config_path: configs/train.yaml
+selected_columns: [character] # should include all target column, can include additional columns
+target_columns: [character]
+target_column_types: # 'criterion' in training_spec must also be adapted
+  character: categorical
 
-selected_columns: [EXAMPLE_INPUT_COLUMN_NAME] # should include all target column, can include additional columns
-target_columns: [EXAMPLE_TARGET_COLUMN_NAME]
-target_column_types:
-  EXAMPLE_TARGET_COLUMN_NAME: real
 
 output_probabilities: false
-map_to_id: false
-device: cpu
-seq_length: 48
-inference_batch_size: 10
+map_to_id: true
+device: cuda
+seq_length: 100
+inference_batch_size: 100
 
 autoregression: true
