@@ -21,7 +21,7 @@ model_spec:
   nlayers: 6
 training_spec:
   device: cuda
-  epochs: 60
+  epochs: 50
   iter_save: 1
   batch_size: 200
   log_interval: 100
@@ -34,6 +34,6 @@ training_spec:
     name: AdamW
   scheduler:
     name: CosineAnnealingLR
-    T_max: 70
+    T_max: 60
     eta_min: 0.000001
   continue_training: true
