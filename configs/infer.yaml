@@ -1,6 +1,6 @@
 project_path: .
 model_path: models/sequifier-default-best-30.onnx
-data_path: data/shakespeare-split2-2686-2707.parquet
+data_path: data/shakespeare-split2-2688-2707.parquet
 ddconfig_path: configs/ddconfigs/shakespeare.json
 training_config_path: configs/train.yaml
 selected_columns: [character] # should include all target column, can include additional columns
@@ -16,4 +16,4 @@ seq_length: 100
 inference_batch_size: 1
 
 
-autoregression: true
+autoregression: false
