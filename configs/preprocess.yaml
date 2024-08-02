@@ -8,8 +8,7 @@ return_targets: true
 n_cores: 7
 
 group_proportions:
-- 0.9
-- 0.08
-- 0.02
+- 0.95
+- 0.05
 seq_length: 100
 max_rows: null
