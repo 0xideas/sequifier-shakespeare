@@ -1,5 +1,5 @@
 project_path: .
-model_name: default
+model_name: default-512
 read_format: parquet
 ddconfig_path: configs/ddconfigs/shakespeare.json
 
@@ -15,10 +15,10 @@ export_onnx: true
 export_pt: true
 
 model_spec:
-  d_model: 256
+  d_model: 512
   nhead: 4
-  d_hid: 256
-  nlayers: 6
+  d_hid: 512
+  nlayers: 8
 training_spec:
   device: cuda
   epochs: 1
