@@ -1,7 +1,7 @@
 project_path: .
-model_name: default-512
+model_name: default-512-16h
 read_format: parquet
-ddconfig_path: configs/ddconfigs/shakespeare.json
+ddconfig_path: configs/ddconfigs/shakespeare-dialogue.json
 
 selected_columns: [character] # should include all target column, can include additional columns
 target_columns: [character]
@@ -16,12 +16,12 @@ export_pt: true
 
 model_spec:
   d_model: 512
-  nhead: 4
+  nhead: 16
   d_hid: 512
-  nlayers: 8
+  nlayers: 6
 training_spec:
   device: cuda
-  epochs: 100
+  epochs: 60
   iter_save: 1
   batch_size: 200
   log_interval: 100
@@ -34,6 +34,6 @@ training_spec:
     name: AdamW
   scheduler:
     name: CosineAnnealingLR
-    T_max: 100
-    eta_min: 0.00001
+    T_max: 70
+    eta_min: 0.000001
   continue_training: true

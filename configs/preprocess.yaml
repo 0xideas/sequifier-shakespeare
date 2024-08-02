@@ -1,5 +1,5 @@
 project_path: .
-data_path: data/shakespeare.csv
+data_path: data/shakespeare-dialogue.csv
 read_format: csv
 write_format: parquet
 selected_columns: [character] # should include all target column, can include additional columns
