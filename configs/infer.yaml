@@ -1,6 +1,6 @@
 project_path: .
 model_path: models/sequifier-default-best-30.onnx
-data_path: data/shakespeare-split2-long.parquet
+data_path: data/shakespeare-split2-2688-2707.parquet
 ddconfig_path: configs/ddconfigs/shakespeare.json
 training_config_path: configs/train.yaml
 selected_columns: [character] # should include all target column, can include additional columns
@@ -13,6 +13,7 @@ output_probabilities: false
 map_to_id: true
 device: cuda
 seq_length: 100
-inference_batch_size: 100
+inference_batch_size: 1
+
 
 autoregression: true
